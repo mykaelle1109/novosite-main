@@ -1,0 +1,71 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Lançar Contracheque{% endblock %}
+
+{% block titulo %}Lançar Contracheque{% endblock %}
+
+{% block conteudo %}
+<h3>Cadastro de Contracheques</h3>
+<p class="lead">Preencha todas as informações do Funcionário.</p>
+<hr>
+<form action="{% url 'lancar' %}" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <label for="userName" class="form-label">Nome:</label>
+                <input type="text" name="nome" id="userName" class="form-control" style="font-weight: bold;">
+            </div>
+            <div class="col-md-6">
+                <label for="disciplinaName" class="form-label">Empresa:</label>
+                <input type="text" id="disciplinaName" name="disciplina" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="notaAtividades" class="form-label">Salário Bruto:</label>
+                <input type="text" id="notaAtividades" name="nota_atividades" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="notaTrabalho" class="form-label">Gratificações:</label>
+                <input type="text" id="notaTrabalho" name="nota_trabalho" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label for="notaProva" class="form-label">Desconto:</label>
+                <input type="text" id="notaProva" name="nota_prova" class="form-control">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4">Registrar Folha de Pagamento</button>
+    </div>
+</form>
+{% endblock %}
+
+<style>
+    .form-control {
+        transition: border-color 0.3s ease;
+    }
+
+    .form-control:focus {
+        border-color: #0056b3;
+        box-shadow: 0 0 0 0.2rem rgba(0, 86, 179, 0.25);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+        border-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    h3,
+    .lead {
+        color: #2734e9;
+    }
+
+    label {
+        font-weight: bold;
+    }
+</style>

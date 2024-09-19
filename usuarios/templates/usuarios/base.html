@@ -1,0 +1,145 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <title>{% block aba %}Templates base{% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2734e9;">
+        <div class="container px-5">
+            <a class="navbar-brand" href="{% url 'home' %}"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                    height="32" fill="#ffffff" viewBox="0 0 256 256">
+                    <path
+                        d="M176,68a12,12,0,1,1-12-12A12,12,0,0,1,176,68Zm64,12a8,8,0,0,1-3.56,6.66L216,100.28V120A104.11,104.11,0,0,1,112,224H24a16,16,0,0,1-12.49-26l.1-.12L96,96.63V76.89C96,43.47,122.79,16.16,155.71,16H156a60,60,0,0,1,57.21,41.86l23.23,15.48A8,8,0,0,1,240,80Zm-22.42,0L201.9,69.54a8,8,0,0,1-3.31-4.64A44,44,0,0,0,156,32h-.22C131.64,32.12,112,52.25,112,76.89V99.52a8,8,0,0,1-1.85,5.13L24,208h26.9l70.94-85.12a8,8,0,1,1,12.29,10.24L71.75,208H112a88.1,88.1,0,0,0,88-88V96a8,8,0,0,1,3.56-6.66Z">
+                    </path>
+                </svg>Colibri </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'home' %}">
+                            <i class="bi bi-house-door"></i> Página Inicial
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'sobre' %}">
+                            <i class="bi bi-info-circle"></i> Sobre
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'contato' %}">
+                            <i class="bi bi-envelope"></i> Contato
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link text-white">
+                            <i class=""></i>
+                            <span class="badge bg-info" style="text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{ user.email }}</span>
+                        </span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'logout' %}">
+                            <i class="bi bi-box-arrow-right"><svg xmlns="http://www.w3.org/2000/svg" width="32"
+                                    height="32" fill="#ffffff" viewBox="0 0 256 256">
+                                    <path
+                                        d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z">
+                                    </path>
+                                </svg></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+        </div>
+    </nav>
+
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="card text-white text-center mb-5" style="background-color: #2734e9;">
+            <div class="card-body">
+                <p class="m-0">{% block titulo %}Seja bem-vindo(a) ao seu Colibri2024{% endblock %}</p>
+            </div>
+        </div>
+
+        <div class="row gx-4 gx-lg-5">
+            {% block conteudo %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100" style="background-color: #d3d3d3;">
+                    <div class="card-body">
+                        <h2 class="card-title">Lançar</h2>
+                        <p class="card-text">Nesta opção você poderá lançar todos os contracheques.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm" href="{% url 'lancar' %}">Lançar Contracheque</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100" style="background-color: #d3d3d3;">
+                    <div class="card-body">
+                        <h2 class="card-title">Alterar Informações</h2>
+                        <p class="card-text">Altere as informações referentes a um contracheque específico.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm" href="{% url 'alterar' %}">Clique aqui</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100" style="background-color: #d3d3d3;">
+                    <div class="card-body">
+                        <h2 class="card-title">Visualizar</h2>
+                        <p class="card-text">Nesta opção você poderá visualizar todos os contracheques cadastrados por
+                            você.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-primary btn-sm" href="{% url 'visualizar' %}">Visualizar Contracheque</a>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer class="py-3">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Colibri2024</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
+<style>
+    body {
+        background-color: #f8f9fa;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .card {
+        transition: transform 0.2s;
+    }
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    footer {
+        background-color: #2734e9;
+        margin-top: auto;
+    }
+</style>

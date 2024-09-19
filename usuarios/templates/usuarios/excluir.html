@@ -1,0 +1,15 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Excluir Contracheque{% endblock %}
+
+{% block titulo %}Excluir Contracheque{% endblock %}
+
+{% block conteudo %}
+<h3>Exclusão de Contracheque Selecionado</h3>
+<hr>
+<p>Tem certeza que deseja excluir este contracheque <strong>{{ lista_notas.nome_aluno }}</strong>?</p>
+<div class = "delete">
+    <a href = "{% url 'excluir' lista_notas.pk %}" class = "btn btn-success btn-sm">Sim</a>
+    <a href = "{% url 'alterar' %}" class = "btn btn-danger btn-sm">Não</a>
+</div>
+{% endblock %}

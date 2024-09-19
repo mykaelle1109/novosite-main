@@ -1,0 +1,19 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Sobre{% endblock %}
+
+{% block titulo %}Uma breve explicação...{% endblock %}
+
+{% block conteudo %}
+
+{% csrf_token %}
+    <div class="text-center my-5">
+        <h2 class="fw-bold">Sobre nós...</h2>
+        <p class="lead">O Colibri é uma sistema especializada em automatizações para o gerenciamento de contracheques e folha de pagamento de funcionários. Com anos de experiência no setor, nossa missão é simplificar e otimizar a administração de salários, gratificações e descontos, oferecendo uma plataforma eficiente, segura e fácil de usar para empresas de todos os portes.
+            </p>
+            <p class="lead"> 
+                Nosso objetivo é garantir que o gerenciamento de contracheques seja um processo descomplicado e confiável, permitindo que as empresas foquem no que realmente importa: o crescimento de seus negócios e o bem-estar de seus colaboradores. Com nossa tecnologia inovadora, eliminamos erros manuais e simplificamos a comunicação entre empregador e empregado.</p>
+            </p>
+           
+    </div>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Editar Contracheque{% endblock %}
+
+{% block titulo %}Editar Contracheque{% endblock %}
+
+{% block conteudo %}
+<h3 class="text-center">Edição do Contracheque Selecionado</h3>
+<p class="lead text-center">Verifique as informações do cadastradas e faça as devidas edições.</p>
+<hr>
+
+<form action="{% url 'editar' lista_notas.pk %}" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <div class="row g-3">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="userName">Funcionário:</label>
+                    <input type="text" class="form-control" id="disciplinaName" name="disciplina" value="{{ lista_notas.nome_aluno }}" required>
+
+                    <label for="userName" style="font-weight: bold;"></label>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="disciplinaName">Empresa:</label>
+                    <input type="text" class="form-control" id="disciplinaName" name="disciplina" value="{{ lista_notas.disciplina }}" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="notaAtividades">Salário Bruto:</label>
+                    <input type="number" class="form-control" id="notaAtividades" name="nota_atividades" value="{{ lista_notas.nota_atividades }}" step="0.01" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="notaTrabalho">Gratificações:</label>
+                    <input type="number" class="form-control" id="notaTrabalho" name="nota_trabalho" value="{{ lista_notas.nota_trabalho }}" step="0.01" required>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="notaProva">Descontos:</label>
+                    <input type="number" class="form-control" id="notaProva" name="nota_prova" value="{{ lista_notas.nota_prova }}" step="0.01" required>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mt-3">
+            <button type="submit" class="btn btn-success">Atualizar</button>
+            <a href="{% url 'alterar' %}" class="btn btn-danger btn-sm">Voltar</a>
+        </div>
+    </div>
+</form>
+{% endblock %}
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f8f9fa;
+    }
+    h3 {
+        color: #2734e9;
+        margin-bottom: 20px;
+    }
+    .lead {
+        color: #6c757d;
+        margin-bottom: 30px;
+    }
+    .form-control {
+        transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-control:focus {
+        border-color: #2734e9;
+        box-shadow: 0 0 5px rgba(39, 52, 233, 0.5);
+    }
+    button.btn-success {
+        background-color: #28a745;
+        border: none;
+        transition: background-color 0.3s, transform 0.3s;
+    }
+    button.btn-success:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+    a.btn-danger {
+        transition: background-color 0.3s;
+    }
+    a.btn-danger:hover {
+        background-color: #c82333;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+</style>
+
