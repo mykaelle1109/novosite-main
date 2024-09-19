@@ -37,7 +37,7 @@
         <tbody class="bg-white">
             {% for campo in lista_notas %}
                 <tr>
-                    <td>Paulo Fernando Oliveira</td>
+                    <td>{{ campo.nome_aluno }}</td>
                     <td>{{ campo.disciplina }}</td>
                     <td>{{ campo.nota_atividades }}</td>
                     <td>{{ campo.nota_trabalho }}</td>
