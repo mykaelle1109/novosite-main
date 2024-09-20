@@ -55,7 +55,8 @@ def lancar(request):
         if request.user.is_authenticated:
             return render(request, 'usuarios/lancar.html')
         else:
-            return HttpResponse("Faça o login para acessar!")
+              return render(request, 'usuarios/login.html')
+
     else:
         nota = Nota()
         nota.nome_aluno = request.POST.get('nome')
@@ -80,7 +81,8 @@ def alterar(request):
             dicionario_notas = {'lista_notas':lista_notas}
             return render(request, 'usuarios/alterar.html', dicionario_notas)
         else:
-            return HttpResponse("Faça o login para acessar!")
+             return render(request, 'usuarios/login.html')
+
 
 def excluir_verificacao(request, pk):
     if request.method == "GET":
@@ -89,7 +91,8 @@ def excluir_verificacao(request, pk):
             dicionario_notas = {'lista_notas':lista_notas}
             return render(request, 'usuarios/excluir.html', dicionario_notas)
         else:
-            return HttpResponse("Faça o login para acessar!")
+              return render(request, 'usuarios/login.html')
+
 
 def editar_verificacao(request, pk):
     if request.method == "GET":
@@ -98,7 +101,8 @@ def editar_verificacao(request, pk):
             dicionario_notas = {'lista_notas':lista_notas}
             return render(request, 'usuarios/editar.html', dicionario_notas)
         else:
-            return HttpResponse("Faça o login para acessar!")
+              return render(request, 'usuarios/login.html')
+
 
 def excluir(request, pk):
     if request.method == "GET":
@@ -107,7 +111,8 @@ def excluir(request, pk):
             disciplina_selecionada.delete()
             return HttpResponseRedirect(reverse('alterar'))
         else:
-            return HttpResponse("Faça o login para acessar!")
+              return render(request, 'usuarios/login.html')
+
 
 def editar(request, pk):
   if request.method == "POST":
@@ -121,7 +126,8 @@ def editar(request, pk):
       Nota.objects.filter(pk=pk).update(nome_aluno = nome_aluno, disciplina = disciplina, nota_atividades = nota_atividades, nota_trabalho = nota_trabalho, nota_prova = nota_prova, media = media )
       return HttpResponseRedirect(reverse('alterar'))
     else:
-      return HttpResponse("Faça o login para acessar!")
+        return render(request, 'usuarios/login.html')
+
     
 
 
@@ -158,11 +164,12 @@ def sobre(request):
     if request.user.is_authenticated:
         return render(request, 'usuarios/sobre.html')
     else:
-        return HttpResponse("Faça o login para acessar!")
+         return render(request, 'usuarios/login.html')
+
 
 
 def contato(request):
     if request.user.is_authenticated:
         return render(request, 'usuarios/contato.html')
     else:
-        return HttpResponse("Faça o login para acessar!")
+         return render(request, 'usuarios/login.html')
